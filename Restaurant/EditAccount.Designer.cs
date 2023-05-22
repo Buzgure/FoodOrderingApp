@@ -193,6 +193,7 @@ namespace Restaurant
             this.Controls.Add(this.panel1);
             this.Name = "EditAccount";
             this.Text = "EditAccount";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.returnToMain);
             this.Load += new System.EventHandler(this.editAccountLoad);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

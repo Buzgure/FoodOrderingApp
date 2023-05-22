@@ -99,6 +99,7 @@ namespace Restaurant.Repository
                         int restaurant_id = Convert.ToInt32(reader["restaurant_id"]);
                         Restaurant restaurant = restaurantRepository.findOne(restaurant_id);
                         food.Restaurant = restaurant;
+                        foods.Add(food);
 
 
 

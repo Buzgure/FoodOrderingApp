@@ -13,11 +13,11 @@ namespace Restaurant
         private string status;
 
         private User user;
-        private Food Food;
+        private ICollection<Food> Food;
 
 
         public Orders(int orderId, string name, string location, float distance, string mentions, string status,
-            User user, Food food)
+            User user, List<Food> food)
         {
             orderID = orderId;
             this.name = name ?? throw new ArgumentNullException(nameof(name));
@@ -72,14 +72,14 @@ namespace Restaurant
             set => user = value;
         }
 
-        public Food Food1
+        public ICollection<Food> Food1
         {
             get => Food;
             set => Food = value;
         }
 
 
-        public void Deconstruct(out int orderId, out string name, out string location, out float distance, out string mentions, out string status, out User user, out Food food)
+        public void Deconstruct(out int orderId, out string name, out string location, out float distance, out string mentions, out string status, out User user, out ICollection<Food> food)
         {
             orderId = orderID;
             name = this.name;

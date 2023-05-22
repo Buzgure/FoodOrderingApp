@@ -12,3 +12,5 @@ C:\Users\Buz\RiderProjects\Restaurant\Restaurant\obj\Debug\Restaurant.Form1.reso
 C:\Users\Buz\RiderProjects\Restaurant\Restaurant\obj\Debug\Restaurant.Register.resources
 C:\Users\Buz\RiderProjects\Restaurant\Restaurant\obj\Debug\Restaurant.MainMenu.resources
 C:\Users\Buz\RiderProjects\Restaurant\Restaurant\obj\Debug\Restaurant.EditAccount.resources
+C:\Users\Buz\RiderProjects\Restaurant\Restaurant\obj\Debug\Restaurant.OrderWindow.resources
+C:\Users\Buz\RiderProjects\Restaurant\Restaurant\obj\Debug\Restaurant.MenuWindowForm.resources

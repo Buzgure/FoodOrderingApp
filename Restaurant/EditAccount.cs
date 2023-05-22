@@ -56,5 +56,13 @@ namespace Restaurant
             }
 
         }
+
+        private void returnToMain(object sender, FormClosedEventArgs e)
+        {
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.User = user;
+            mainMenu.Show();
+            this.Hide();
+        }
     }
 }

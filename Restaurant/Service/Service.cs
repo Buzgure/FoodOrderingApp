@@ -138,5 +138,72 @@ namespace Restaurant.Service
 
 
         }
+
+        public List<Food> getFoodList()
+        {
+            List<Food> foodList = foodRepo.findAll().ToList();
+            try
+            {
+                return foodList;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
+        public Orders addOrder(Orders order)
+        {
+            try
+            {
+                return ordersRepo.save(order);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
+        public Orders deleteOrder(Orders order)
+        {
+            try
+            {
+                return ordersRepo.delete(order);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
+        public Orders updateOrder(Orders order)
+        {
+            try
+            {
+                return ordersRepo.update(order);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
+        public int getMaxIDOrder()
+        {
+            List<Orders> orders = ordersRepo.findAll().ToList();
+            int maxID = 0;
+            foreach (Orders o in orders)
+            {
+                if (o.OrderId > maxID)
+                    maxID = o.OrderId;
+            }
+
+            return maxID;
+
+        }
     }
 }
