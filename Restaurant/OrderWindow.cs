@@ -15,6 +15,9 @@ namespace Restaurant
         public OrderWindow()
         {
             InitializeComponent();
+            restaurantRepo = new RestaurantRepository();
+            ordersRepo = new OrdersRepository();
+            service = new Service.Service(restaurantRepo, null, null, ordersRepo);
         }
 
         public User User
@@ -59,13 +62,13 @@ namespace Restaurant
             string location = city + ", " + street + ", " + streetNo + ";";
             
             //Orders order = new Orders(service.getMaxIDOrder, user.ActualName, location,);
-            foreach (Food f in food)
-            {
-                Orders order = new Orders(service.getMaxIDOrder(), user.Username, location,
-                    float.Parse(distanceTextBox.Text), mentions, "Taken", user, food);
-                
-                
-            }
+            Orders order = new Orders(service.getMaxIDOrder(), user.Username, location,
+                float.Parse(distanceTextBox.Text), mentions, "Taken", user, food);
+            service.addOrder(order);
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.User = user;
+            this.Hide();
+            mainMenu.Show();
 
 
 

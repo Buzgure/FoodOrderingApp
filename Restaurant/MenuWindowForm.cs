@@ -99,6 +99,8 @@ namespace Restaurant
             OrderWindow orderWindow = new OrderWindow();
             orderWindow.User = user;
             orderWindow.Food = cart;
+            this.Hide();
+            orderWindow.Show();
             
 
         }

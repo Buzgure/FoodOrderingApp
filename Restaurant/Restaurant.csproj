@@ -95,6 +95,7 @@
         <Compile Include="Repository\UserRepository.cs" />
         <Compile Include="Service\Service.cs" />
         <Compile Include="UserInterface\UserInterface.cs" />
+        <Compile Include="Utils\Utils.cs" />
         <EmbeddedResource Include="EditAccount.resx">
           <DependentUpon>EditAccount.cs</DependentUpon>
         </EmbeddedResource>
