@@ -1,0 +1,14 @@
+C:\Users\Buz\RiderProjects\Restaurant\Restaurant\bin\Debug\Restaurant.exe.config
+C:\Users\Buz\RiderProjects\Restaurant\Restaurant\bin\Debug\Restaurant.exe
+C:\Users\Buz\RiderProjects\Restaurant\Restaurant\bin\Debug\Restaurant.pdb
+C:\Users\Buz\RiderProjects\Restaurant\Restaurant\obj\Debug\Restaurant.csproj.AssemblyReference.cache
+C:\Users\Buz\RiderProjects\Restaurant\Restaurant\obj\Debug\Restaurant.csproj.SuggestedBindingRedirects.cache
+C:\Users\Buz\RiderProjects\Restaurant\Restaurant\obj\Debug\Restaurant.Properties.Resources.resources
+C:\Users\Buz\RiderProjects\Restaurant\Restaurant\obj\Debug\Restaurant.csproj.GenerateResource.cache
+C:\Users\Buz\RiderProjects\Restaurant\Restaurant\obj\Debug\Restaurant.csproj.CoreCompileInputs.cache
+C:\Users\Buz\RiderProjects\Restaurant\Restaurant\obj\Debug\Restaurant.exe
+C:\Users\Buz\RiderProjects\Restaurant\Restaurant\obj\Debug\Restaurant.pdb
+C:\Users\Buz\RiderProjects\Restaurant\Restaurant\obj\Debug\Restaurant.Form1.resources
+C:\Users\Buz\RiderProjects\Restaurant\Restaurant\obj\Debug\Restaurant.Register.resources
+C:\Users\Buz\RiderProjects\Restaurant\Restaurant\obj\Debug\Restaurant.MainMenu.resources
+C:\Users\Buz\RiderProjects\Restaurant\Restaurant\obj\Debug\Restaurant.EditAccount.resources
