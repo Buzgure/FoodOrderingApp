@@ -85,6 +85,7 @@ namespace Restaurant
                 Orders order = new Orders(user.UserId, foodId, user.Username, location,
                     Convert.ToSingle(distanceTextBox.Text), mentions, "taken",
                     quantity);
+                //Add order update;
                 service.addOrder(order);
             }
             

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Restaurant.Repository;
 
@@ -54,27 +56,58 @@ namespace Restaurant
 
         private void restaurantGridView_CellContentClick(object sender, EventArgs e)
         {
-            List<Food> allFood = service.getFoodList();
-    
-            Restaurant selected = restaurantGridView.CurrentRow.DataBoundItem as Restaurant;
-            if (selected != null)
+            try
             {
-               // List<Food> filteredFoods = allFood.Where(food => food.Restaurant.RestaurantId == selected.RestaurantId).ToList();
-               List<Food> filteredFoods = new List<Food>();
-               foreach (Food f in allFood)
-               {
-                   if(f.Restaurant.RestaurantId == selected.RestaurantId)
-                       filteredFoods.Add(f);
-               }
+                
+                List<Food> allFood = service.getFoodList();
+    
+                Restaurant selected = restaurantGridView.CurrentRow.DataBoundItem as Restaurant;
+                string schedule = selected.Schedule;
+                string pattern = @"(\d{2}:\d{2})\s-\s(\d{2}:\d{2})";
+                Match match = Regex.Match(schedule, pattern);
+                if (match.Success)
+                {
+                    string startTimeStr = match.Groups[1].Value;
+                    string endTimeStr = match.Groups[2].Value;
+                    DateTime startTime = DateTime.ParseExact(startTimeStr, "HH:mm", CultureInfo.InvariantCulture);
+                    DateTime endTime = DateTime.ParseExact(endTimeStr, "HH:mm", CultureInfo.CurrentCulture);
+                    DateTime now = DateTime.Now;
+                    //string currentTimeString = now.ToString("HH:mm");
+                    //DateTime currentTime = DateTime.ParseExact(currentTimeString, "HH:mm", CultureInfo.CurrentCulture);
+                    if (now < endTime && now > startTime)
+                    {
+                        if (selected != null)
+                        {
+                            // List<Food> filteredFoods = allFood.Where(food => food.Restaurant.RestaurantId == selected.RestaurantId).ToList();
+                            List<Food> filteredFoods = new List<Food>();
+                            foreach (Food f in allFood)
+                            {
+                                if(f.Restaurant.RestaurantId == selected.RestaurantId)
+                                    filteredFoods.Add(f);
+                            }
                
-               MenuWindowForm menuWindow = new MenuWindowForm();
-               menuWindow.User = user;
-               menuWindow.Restaurant = selected;
-               menuWindow.Food = filteredFoods;
-               this.Hide();
-               menuWindow.Show();
+                            MenuWindowForm menuWindow = new MenuWindowForm();
+                            menuWindow.User = user;
+                            menuWindow.Restaurant = selected;
+                            menuWindow.Food = filteredFoods;
+                            this.Hide();
+                            menuWindow.Show();
+                        }
+                    }
+                    else
+                    {
+                        throw new Exception();
+                    }
 
-
+                }
+                
+                
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Restaurant is closed!");
+                return;
             }
 
         }
