@@ -108,5 +108,15 @@ namespace Restaurant
         {
             throw new System.NotImplementedException();
         }
+
+        private void returnToMain(object sender, FormClosedEventArgs e)
+        {
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.Service = service;
+            mainMenu.OrdersRepo = ordersRepo;
+            mainMenu.User = user;
+            Hide();
+            mainMenu.Show();
+        }
     }
 }

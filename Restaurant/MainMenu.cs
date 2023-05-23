@@ -22,6 +22,24 @@ namespace Restaurant
             set => user = value;
         }
 
+        public Repository<Restaurant> RestaurantRepo
+        {
+            get => restaurantRepo;
+            set => restaurantRepo = value;
+        }
+
+        public Repository<Orders> OrdersRepo
+        {
+            get => ordersRepo;
+            set => ordersRepo = value;
+        }
+
+        public Service.Service Service
+        {
+            get => service;
+            set => service = value;
+        }
+
         public MainMenu()
         {
             
@@ -74,8 +92,7 @@ namespace Restaurant
                     DateTime now = DateTime.Now;
                     //string currentTimeString = now.ToString("HH:mm");
                     //DateTime currentTime = DateTime.ParseExact(currentTimeString, "HH:mm", CultureInfo.CurrentCulture);
-                    //if (now < endTime && now > startTime)
-                    if(now > endTime)
+                    if (now < endTime && now > startTime)
                     {
                         if (selected != null)
                         {

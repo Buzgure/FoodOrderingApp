@@ -98,6 +98,7 @@ namespace Restaurant
             this.Controls.Add(this.ordersGridView);
             this.Name = "MyOrdersWindow2";
             this.Text = "MyOrdersWindow2";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.returnToMain);
             this.Load += new System.EventHandler(this.MyOrdersWindow2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ordersGridView)).EndInit();
             this.ResumeLayout(false);

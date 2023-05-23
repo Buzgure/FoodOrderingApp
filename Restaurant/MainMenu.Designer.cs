@@ -85,17 +85,18 @@ namespace Restaurant
             // panel2
             // 
             this.panel2.Controls.Add(this.restaurantGridView);
-            this.panel2.Location = new System.Drawing.Point(154, 169);
+            this.panel2.Location = new System.Drawing.Point(12, 169);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(466, 249);
+            this.panel2.Size = new System.Drawing.Size(774, 249);
             this.panel2.TabIndex = 4;
             // 
             // restaurantGridView
             // 
             this.restaurantGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.restaurantGridView.Location = new System.Drawing.Point(48, 0);
+            this.restaurantGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.restaurantGridView.Location = new System.Drawing.Point(0, 0);
             this.restaurantGridView.Name = "restaurantGridView";
-            this.restaurantGridView.Size = new System.Drawing.Size(375, 234);
+            this.restaurantGridView.Size = new System.Drawing.Size(774, 249);
             this.restaurantGridView.TabIndex = 0;
             this.restaurantGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.restaurantGridView_CellContentClick);
             // 
