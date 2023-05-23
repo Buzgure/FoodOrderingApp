@@ -5,30 +5,52 @@ namespace Restaurant
 {
     public class Orders
     {
+        private static int count = 0;
         private int orderID;
+        private int userID;
+        private int foodID;
         private string name;
         private string location;
         private float distance;
         private string mentions;
         private string status;
+        private int quantity;
 
-        private User user;
-        private ICollection<Food> Food;
-
-
-        public Orders(int orderId, string name, string location, float distance, string mentions, string status,
-            User user, List<Food> food)
+        public Orders()
         {
-            orderID = orderId;
-            this.name = name ?? throw new ArgumentNullException(nameof(name));
-            this.location = location ?? throw new ArgumentNullException(nameof(location));
-            this.distance = distance;
-            this.mentions = mentions ?? throw new ArgumentNullException(nameof(mentions));
-            this.status = status ?? throw new ArgumentNullException(nameof(status));
-            this.user = user ?? throw new ArgumentNullException(nameof(user));
-            Food = food ?? throw new ArgumentNullException(nameof(food));
+            orderID = count++;
         }
 
+        public Orders(int userId, int foodId, string name, string location, float distance, string mentions, string status, int quantity)
+        {
+            orderID = count++;
+            userID = userId;
+            foodID = foodId;
+            this.name = name;
+            this.location = location;
+            this.distance = distance;
+            this.mentions = mentions;
+            this.status = status;
+            this.quantity = quantity;
+        }
+
+        public int Quantity
+        {
+            get => quantity;
+            set => quantity = value;
+        }
+
+        public int UserId
+        {
+            get => userID;
+            set => userID = value;
+        }
+
+        public int FoodId
+        {
+            get => foodID;
+            set => foodID = value;
+        }
 
         public int OrderId
         {
@@ -65,21 +87,10 @@ namespace Restaurant
             get => status;
             set => status = value;
         }
-
-        public User User
-        {
-            get => user;
-            set => user = value;
-        }
-
-        public ICollection<Food> Food1
-        {
-            get => Food;
-            set => Food = value;
-        }
+        
 
 
-        public void Deconstruct(out int orderId, out string name, out string location, out float distance, out string mentions, out string status, out User user, out ICollection<Food> food)
+        public void Deconstruct(out int orderId, out string name, out string location, out float distance, out string mentions, out string status)
         {
             orderId = orderID;
             name = this.name;
@@ -87,8 +98,7 @@ namespace Restaurant
             distance = this.distance;
             mentions = this.mentions;
             status = this.status;
-            user = this.user;
-            food = Food;
+            
         }
 
         private sealed class OrderIdEqualityComparer : IEqualityComparer<Orders>
@@ -110,4 +120,6 @@ namespace Restaurant
 
         public static IEqualityComparer<Orders> OrderIdComparer { get; } = new OrderIdEqualityComparer();
     }
+    
+    
 }

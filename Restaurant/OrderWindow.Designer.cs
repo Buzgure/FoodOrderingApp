@@ -32,6 +32,8 @@ namespace Restaurant
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.distanceTextBox = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.MentionsTextBox = new System.Windows.Forms.Label();
             this.StreetNoTextBox = new System.Windows.Forms.Label();
@@ -41,8 +43,6 @@ namespace Restaurant
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.StreetTextBox = new System.Windows.Forms.TextBox();
             this.cityTextBox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.distanceTextBox = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,6 +64,23 @@ namespace Restaurant
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(426, 614);
             this.panel1.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(79, 320);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(100, 23);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Distance:";
+            // 
+            // distanceTextBox
+            // 
+            this.distanceTextBox.Location = new System.Drawing.Point(79, 346);
+            this.distanceTextBox.Multiline = true;
+            this.distanceTextBox.Name = "distanceTextBox";
+            this.distanceTextBox.Size = new System.Drawing.Size(188, 34);
+            this.distanceTextBox.TabIndex = 11;
             // 
             // button2
             // 
@@ -143,23 +160,6 @@ namespace Restaurant
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(188, 34);
             this.cityTextBox.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(79, 320);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 23);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Distance:";
-            // 
-            // distanceTextBox
-            // 
-            this.distanceTextBox.Location = new System.Drawing.Point(79, 346);
-            this.distanceTextBox.Multiline = true;
-            this.distanceTextBox.Name = "distanceTextBox";
-            this.distanceTextBox.Size = new System.Drawing.Size(188, 34);
-            this.distanceTextBox.TabIndex = 11;
             // 
             // OrderWindow
             // 

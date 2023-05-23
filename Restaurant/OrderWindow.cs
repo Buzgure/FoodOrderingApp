@@ -56,15 +56,39 @@ namespace Restaurant
         {
             string city = cityTextBox.Text;
             string street = StreetTextBox.Text;
-            string streetNo = StreetNoTextBox.Text;
-            string mentions = MentionsTextBox.Text;
+            string streetNo = textBox2.Text;
+            string mentions = textBox3.Text;
 
             string location = city + ", " + street + ", " + streetNo + ";";
             
             //Orders order = new Orders(service.getMaxIDOrder, user.ActualName, location,);
-            Orders order = new Orders(service.getMaxIDOrder(), user.Username, location,
-                float.Parse(distanceTextBox.Text), mentions, "Taken", user, food);
-            service.addOrder(order);
+           // Orders order = new Orders(1, user.Username, location,
+            //    float.Parse(distanceTextBox.Text), mentions, "Taken", user, food);
+            Dictionary<int, int> foodQuantity = new Dictionary<int, int>();
+
+            foreach (Food f in food)
+            {
+                if (foodQuantity.ContainsKey(f.FoodId))
+                {
+                    foodQuantity[f.FoodId]++;
+                }
+                else
+                {
+                    foodQuantity[f.FoodId] = 1;
+                }
+            }
+
+            foreach (var kvp in foodQuantity)
+            {
+                int foodId = kvp.Key;
+                int quantity = kvp.Value;
+                Orders order = new Orders(user.UserId, foodId, user.Username, location,
+                    Convert.ToSingle(distanceTextBox.Text), mentions, "taken",
+                    quantity);
+                service.addOrder(order);
+            }
+            
+            
             MainMenu mainMenu = new MainMenu();
             mainMenu.User = user;
             this.Hide();

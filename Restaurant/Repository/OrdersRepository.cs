@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace Restaurant.Repository
 {
@@ -19,35 +20,16 @@ namespace Restaurant.Repository
                     SqlCommand command = new SqlCommand(
                         "INSERT INTO Orders(users_id, food_id, users_name, user_location, distance, order_mentions, order_status, quantity) VALUES (@users_id, @food_id, @users_name, @user_location, @distance, @order_mentions, @order_status, @quantity)",
                         connection);
-                    int entriesNo = entity.Food1.Count;
-                    Dictionary<int, int> foodQuantity = new Dictionary<int, int>();
-                    foreach (var food in entity.Food1)
-                    {
-                        if (foodQuantity.ContainsKey(food.FoodId))
-                        {
-                            foodQuantity[food.FoodId]++;
-                        }
-                        else
-                        {
-                            foodQuantity[food.FoodId] = 0;
-                        }
-                        
-                    }
-
-                    foreach (var kvp in foodQuantity)
-                    {
-                        int foodId = kvp.Key;
-                        int quantity = kvp.Value;
-                        command.Parameters.AddWithValue("@users_id", entity.User.UserId);
-                        command.Parameters.AddWithValue("@food_id", foodId);
-                        command.Parameters.AddWithValue("@users_name", entity.User.Username);
-                        command.Parameters.AddWithValue("@users_location", entity.Location);
-                        command.Parameters.AddWithValue("@distance", entity.Distance);
-                        command.Parameters.AddWithValue("@order_mentions", entity.Mentions);
-                        command.Parameters.AddWithValue("@order_status", entity.Status);
-                        command.Parameters.AddWithValue("@quantity", quantity);
-                        command.ExecuteNonQuery();
-                    }
+                    command.Parameters.AddWithValue("@users_id", entity.UserId);
+                    command.Parameters.AddWithValue("@food_id", entity.FoodId);
+                    command.Parameters.AddWithValue("@users_name", entity.Name);
+                    command.Parameters.AddWithValue("@user_location", entity.Location);
+                    command.Parameters.AddWithValue("@distance", entity.Distance);
+                    command.Parameters.AddWithValue("@order_mentions", entity.Mentions);
+                    command.Parameters.AddWithValue("@order_status", entity.Status);
+                    command.Parameters.AddWithValue("@quantity", entity.Quantity);
+                    command.ExecuteNonQuery();
+                    
                     
                   
                 }
@@ -71,6 +53,44 @@ namespace Restaurant.Repository
         }
 
         public ICollection<Orders> findAll()
+        { 
+            List<Orders> orders = new List<Orders>();
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connString))
+                {
+                    connection.Open();
+                    string query = "SELECT * FROM Orders";
+                    SqlCommand command = new SqlCommand(query, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Orders order = new Orders();
+                        order.UserId = Convert.ToInt32(reader["users_id"]);
+                        order.FoodId = Convert.ToInt32(reader["food_id"]);
+                        order.Name = Convert.ToString(reader["users_name"]);
+                        order.Location = Convert.ToString(reader["user_location"]);
+                        order.Distance = Convert.ToSingle(reader["distance"]);
+                        order.Mentions = Convert.ToString(reader["order_mentions"]);
+                        order.Status = Convert.ToString(reader["order_status"]);
+                        order.Quantity = Convert.ToInt32(reader["quantity"]);
+                        orders.Add(order);
+
+                    }
+                    reader.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                throw;
+            }
+
+            return orders;
+        }
+
+        private ICollection<Food> GetFoodByID(int userId)
         {
             throw new System.NotImplementedException();
         }
