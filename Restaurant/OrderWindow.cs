@@ -92,6 +92,7 @@ namespace Restaurant
             
             MainMenu mainMenu = new MainMenu();
             mainMenu.User = user;
+            
             this.Hide();
             mainMenu.Show();
 

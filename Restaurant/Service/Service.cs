@@ -192,6 +192,19 @@ namespace Restaurant.Service
             }
         }
 
+        public List<Orders> getAllOrders()
+        {
+            try
+            {
+                return ordersRepo.findAll().ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
         public int getMaxIDOrder()
         {
             List<Orders> orders = ordersRepo.findAll().ToList();
@@ -204,6 +217,21 @@ namespace Restaurant.Service
 
             return maxID;
 
+        }
+
+        public List<Orders> findOrdersByUser(int userID)
+        {
+            List<Orders> allOrders = getAllOrders();
+            List<Orders> desiredOrders = new List<Orders>();
+            foreach (var o in allOrders)
+            {
+                if (o.UserId == userID)
+                {
+                    desiredOrders.Add(o);
+                }
+            }
+
+            return desiredOrders;
         }
     }
 }

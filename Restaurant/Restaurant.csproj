@@ -74,6 +74,12 @@
         <Compile Include="MenuWindowForm.Designer.cs">
           <DependentUpon>MenuWindowForm.cs</DependentUpon>
         </Compile>
+        <Compile Include="MyOrdersWindow2.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="MyOrdersWindow2.Designer.cs">
+          <DependentUpon>MyOrdersWindow2.cs</DependentUpon>
+        </Compile>
         <Compile Include="OrderWindow.cs">
           <SubType>Form</SubType>
         </Compile>
@@ -107,6 +113,9 @@
         </EmbeddedResource>
         <EmbeddedResource Include="MenuWindowForm.resx">
           <DependentUpon>MenuWindowForm.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="MyOrdersWindow2.resx">
+          <DependentUpon>MyOrdersWindow2.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="OrderWindow.resx">
           <DependentUpon>OrderWindow.cs</DependentUpon>

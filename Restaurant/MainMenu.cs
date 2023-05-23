@@ -121,5 +121,16 @@ namespace Restaurant
         {
             Application.Exit();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            MyOrdersWindow2 myOrdersWindow = new MyOrdersWindow2();
+            myOrdersWindow.Service = service;
+            myOrdersWindow.OrdersRepo = ordersRepo;
+            myOrdersWindow.UsersRepo = new UserRepository();
+            myOrdersWindow.User = user;
+            Hide();
+            myOrdersWindow.Show();
+        }
     }
 }
