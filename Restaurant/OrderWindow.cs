@@ -9,6 +9,7 @@ namespace Restaurant
     {
         User user;
         private Repository<Restaurant> restaurantRepo;
+        private Restaurant restaurant;
         private List<Food> food;
         private Repository<Orders> ordersRepo;
         private Service.Service service;
@@ -18,6 +19,12 @@ namespace Restaurant
             restaurantRepo = new RestaurantRepository();
             ordersRepo = new OrdersRepository();
             service = new Service.Service(restaurantRepo, null, null, ordersRepo);
+        }
+
+        public Restaurant Restaurant
+        {
+            get => restaurant;
+            set => restaurant = value;
         }
 
         public User User

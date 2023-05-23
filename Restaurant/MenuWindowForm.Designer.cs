@@ -38,6 +38,8 @@ namespace Restaurant
             this.quantityTextBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.menuGridView = new System.Windows.Forms.DataGridView();
+            this.totalLabel = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.menuGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,11 +108,30 @@ namespace Restaurant
             this.menuGridView.Size = new System.Drawing.Size(358, 166);
             this.menuGridView.TabIndex = 7;
             // 
+            // totalLabel
+            // 
+            this.totalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalLabel.Location = new System.Drawing.Point(314, 445);
+            this.totalLabel.Name = "totalLabel";
+            this.totalLabel.Size = new System.Drawing.Size(50, 23);
+            this.totalLabel.TabIndex = 15;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(258, 445);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(50, 23);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Total:";
+            // 
             // MenuWindowForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 477);
+            this.Controls.Add(this.totalLabel);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.cartProductsNO);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
@@ -125,6 +146,9 @@ namespace Restaurant
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Label totalLabel;
+        private System.Windows.Forms.Label label3;
 
         private System.Windows.Forms.Label cartProductsNO;
         private System.Windows.Forms.Label label1;

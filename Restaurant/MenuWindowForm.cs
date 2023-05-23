@@ -11,6 +11,7 @@ namespace Restaurant
         private Restaurant restaurant;
         private List<Food> cart;
         static int productNo = 0;
+        private static float total = 0;
         public MenuWindowForm()
         {
             InitializeComponent();
@@ -64,6 +65,7 @@ namespace Restaurant
         
             menuGridView.DataSource = foods;
             cartProductsNO.Text = productNo.ToString();
+            totalLabel.Text = total.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -82,6 +84,7 @@ namespace Restaurant
             {
                 string quantityStr = quantityTextBox.Text;
                 int quantity = int.Parse(quantityStr);
+                total += selected.Price * quantity;
                 productNo += quantity;
                 while (quantity != 0)
                 {
@@ -89,18 +92,29 @@ namespace Restaurant
                     quantity--;
                 }
                 
-                cartProductsNO.Text = productNo.ToString();   
-                
+                cartProductsNO.Text = productNo.ToString();
+                totalLabel.Text = total.ToString();
+
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            OrderWindow orderWindow = new OrderWindow();
-            orderWindow.User = user;
-            orderWindow.Food = cart;
-            this.Hide();
-            orderWindow.Show();
+
+            if (total > restaurant.MinimumOrder)
+            {
+                OrderWindow orderWindow = new OrderWindow();
+                orderWindow.User = user;
+                orderWindow.Food = cart;
+                orderWindow.Restaurant = restaurant;
+                this.Hide();
+                orderWindow.Show();
+            }
+            else
+            {
+                MessageBox.Show("Minimum order not reached!");
+            }
+            
             
 
         }

@@ -74,7 +74,8 @@ namespace Restaurant
                     DateTime now = DateTime.Now;
                     //string currentTimeString = now.ToString("HH:mm");
                     //DateTime currentTime = DateTime.ParseExact(currentTimeString, "HH:mm", CultureInfo.CurrentCulture);
-                    if (now < endTime && now > startTime)
+                    //if (now < endTime && now > startTime)
+                    if(now > endTime)
                     {
                         if (selected != null)
                         {

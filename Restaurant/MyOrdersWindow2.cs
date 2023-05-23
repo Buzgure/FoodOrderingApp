@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Windows.Forms;
 using Restaurant.Repository;
 
@@ -78,6 +80,18 @@ namespace Restaurant
                     
                 }
 
+                List<Orders> orders = service.findOrdersByUser(user.UserId);
+                Restaurant r = service.FindRestaurantByFoodId(orders[0].FoodId);
+
+                float maxDistance = r.DeliveryMaxDistance;
+                foreach (Orders order in orders)
+                {
+                    if (order.Distance > maxDistance)
+                    {
+                        float additionalFee = r.ExtraDeliveryFee * (order.Distance - r.DeliveryMaxDistance);
+                        total += additionalFee;
+                    }
+                }
                 label2.Text = total.ToString();
 
 

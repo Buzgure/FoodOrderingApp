@@ -233,5 +233,20 @@ namespace Restaurant.Service
 
             return desiredOrders;
         }
+
+        public Restaurant FindRestaurantByFoodId(int foodId)
+        {
+            List<Food> allFoods = foodRepo.findAll().ToList();
+
+            foreach (var f in allFoods)
+            {
+                if (f.FoodId == foodId)
+                {
+                    return f.Restaurant;
+                }
+            }
+
+            return null;
+        }
     }
 }
