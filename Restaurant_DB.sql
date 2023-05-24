@@ -46,9 +46,17 @@ distance float,
 order_mentions varchar(500),
 order_status varchar(50)
 );
+alter table Orders
+add quantity int;
 
 SELECT * FROM Users;
 SELECT * FROM Restaurant;
 INSERT INTO Restaurant VALUES ('McDonalds','09:00 - 21:00', 40, 15, 5.99, 1.20);
+INSERT INTO Restaurant VALUES ('KFC','09:00 - 21:00', 45.59, 20, 6.99, 1.00);
 SELECT * FROM Food;
 INSERT INTO Food VALUES('Nuggets', 'Fried', 18.99, 1);
+INSERT INTO Food VALUES('Zinger', 'Fried', 22.99, 2);
+SELECT * FROM Orders;
+INSERT INTO Food VALUES('McChicken', 'Burger', 20.99, 1);
+
+
