@@ -44,6 +44,7 @@ namespace Restaurant
             
             if (service.UserUpdate(updatedUser) != null)
             {
+                
                 MessageBox.Show("User updated successful!");
                 MainMenu mainMenu = new MainMenu();
                 mainMenu.User = updatedUser;

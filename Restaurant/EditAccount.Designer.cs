@@ -156,7 +156,7 @@ namespace Restaurant
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(141, 37);
-            this.textBox3.TabIndex = 3;
+            this.textBox3.TabIndex = 1;
             // 
             // textBox2
             // 
@@ -172,7 +172,7 @@ namespace Restaurant
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(141, 37);
-            this.textBox1.TabIndex = 1;
+            this.textBox1.TabIndex = 3;
             // 
             // button1
             // 
@@ -180,7 +180,7 @@ namespace Restaurant
             this.button1.Location = new System.Drawing.Point(383, 358);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(79, 47);
-            this.button1.TabIndex = 0;
+            this.button1.TabIndex = 4;
             this.button1.Text = "Update";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);

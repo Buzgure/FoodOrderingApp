@@ -60,5 +60,12 @@ namespace Restaurant
                 MessageBox.Show("Register failed!");
             }
         }
+
+        private void returnToLogin(object sender, FormClosedEventArgs e)
+        {
+            Form1 form1 = new Form1();
+            this.Hide();
+            form1.Show();
+        }
     }
 }

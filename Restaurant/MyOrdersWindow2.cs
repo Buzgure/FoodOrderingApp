@@ -59,10 +59,10 @@ namespace Restaurant
             {
                 connection.Open();
     
-                string query = "SELECT o.users_name as Name, f.food_name as Item_Ordererd, o.order_mentions as Mentions, o.order_status as Status, (o.quantity*f.food_price) as Price   FROM Orders o INNER JOIN Food f ON o.food_id = f.food_id WHERE users_name = @users_name";
+                string query = "SELECT u.username as Name, f.food_name as Item_Ordererd, o.order_mentions as Mentions, o.order_status as Status, (o.quantity*f.food_price) as Price   FROM Orders o INNER JOIN Food f ON o.food_id = f.food_id INNER JOIN Users u ON o.users_id = u.users_id WHERE u.users_id = @users_id ";
                 
                 SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@users_name", user.Username);
+                command.Parameters.AddWithValue("@users_id", user.UserId);
                 SqlDataReader reader = command.ExecuteReader();
     
                 DataTable dataTable = new DataTable();
@@ -101,12 +101,28 @@ namespace Restaurant
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+            MessageBox.Show("Function not implemented");
         }
 
         private void deleteOrderButton_Click(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+            /*
+            var selected = ordersGridView.CurrentRow.DataBoundItem as Orders;
+
+            if (selected != null)
+            {
+                Orders orderToDelete = service.findOrdersByUserIdAndFoodId(selected.UserId, selected.FoodId);
+                service.deleteOrder(orderToDelete);
+                MessageBox.Show("Order deleted successfully!");
+            }
+            else
+            {
+                MessageBox.Show("You have to select an order.");
+            }*/
+
+
+            MessageBox.Show("Function not implemented");
+            
         }
 
         private void returnToMain(object sender, FormClosedEventArgs e)

@@ -205,6 +205,53 @@ namespace Restaurant.Service
             }
         }
 
+        public Orders findOrderByUsernameAndFoodName(string userName, string foodName)
+        {
+            List<User> allUsers = getAllUsers();
+            int userId = 0;
+            foreach (User u in allUsers)
+            {
+                if (u.Username == userName)
+                    userId = u.UserId;
+            }
+
+            List<Food> allFood = getFoodList();
+            int foodId = 0;
+            foreach (Food f in allFood)
+            {
+                if (f.FoodName == foodName)
+                {
+                    foodId = f.FoodId;
+                }
+            }
+            List <Orders> allOrders = getAllOrders();
+            foreach (Orders o in allOrders)
+            {
+                if (o.UserId == userId && o.FoodId == foodId)
+                {
+                    return o;
+                }
+                
+            }
+
+            return null;
+        }
+
+        public Orders findOrdersByUserIdAndFoodId(int userId, int foodId)
+        {
+            List <Orders> allOrders = getAllOrders();
+            foreach (Orders o in allOrders)
+            {
+                if (o.UserId == userId && o.FoodId == foodId)
+                {
+                    return o;
+                }
+                
+            }
+
+            return null;
+        }
+
         public int getMaxIDOrder()
         {
             List<Orders> orders = ordersRepo.findAll().ToList();
@@ -232,6 +279,12 @@ namespace Restaurant.Service
             }
 
             return desiredOrders;
+        }
+
+        public void updateOrdersWithUser(User newUser, User oldUser)
+        {
+            List <Orders> allOrders = getAllOrders();
+            
         }
 
         public Restaurant FindRestaurantByFoodId(int foodId)

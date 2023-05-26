@@ -151,6 +151,7 @@ namespace Restaurant
             this.Controls.Add(this.panel1);
             this.Name = "Register";
             this.Text = "Register";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.returnToLogin);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
